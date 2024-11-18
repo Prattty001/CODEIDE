@@ -48,7 +48,7 @@ const Editior = () => {
   }, [htmlCode, cssCode, jsCode]);
 
   useEffect(() => {
-    fetch(api_base_url + "/getProject", {
+    fetch(api_base_url + "/api/getProject", {
       mode: "cors",
       method: "POST",
       headers: {
@@ -73,7 +73,7 @@ const Editior = () => {
         event.preventDefault(); // Prevent the default save file dialog
   
         // Ensure that projectID and code states are updated and passed to the fetch request
-        fetch(api_base_url + "/updateProject", {
+        fetch(api_base_url + "/api/updateProject", {
           mode: "cors",
           method: "POST",
           headers: {
