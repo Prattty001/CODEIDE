@@ -4,7 +4,7 @@ import ListCard from '../components/ListCard';
 import GridCard from '../components/GridCard';
 import { api_base_url } from '../helper';
 import { useNavigate } from 'react-router-dom';
-
+import {toast} from 'react-hot-toast';
 const Home = () => {
 
   const [data, setData] = useState(null);
@@ -37,10 +37,12 @@ const Home = () => {
         if (data.success) {
           setIsCreateModelShow(false);
           setProjTitle("");
-          alert("Project Created Successfully");
+          toast.success("Project Created Successfully");
+          
           navigate(`/editior/${data.projectId}`);
         } else {
-          alert("Something Went Wrong");
+          toast.error("Something Went Wrong")
+         
         }
       });
     }

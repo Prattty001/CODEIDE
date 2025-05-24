@@ -3,6 +3,7 @@ import logo from "../images/Logoo.png"
 import { Link, useNavigate } from 'react-router-dom';
 import image from "../images/authPageSide.png";
 import { api_base_url } from '../helper';
+import toast from 'react-hot-toast';
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -30,10 +31,12 @@ const SignUp = () => {
       })
     }).then((res)=>res.json()).then((data)=>{
       if(data.success === true){
-        alert("Account created successfully");
+        toast.success("Account Created Successfull")
+        // alert("Account created successfully");
         navigate("/login"); 
       }
       else{
+          toast.error(data.message || "Something went wrong");
         setError(data.message);
       }
     })

@@ -11,4 +11,4 @@ export const removeClass = (el,className) => {
 };
 
 
-export const api_base_url = "https://codebackend-jyac.onrender.com"
+export const api_base_url = "https://ideback-1.onrender.com"

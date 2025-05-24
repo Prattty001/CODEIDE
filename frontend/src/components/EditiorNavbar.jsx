@@ -24,9 +24,9 @@ const EditiorNavbar = () => {
         <p>
           File / <span className="text-[gray]">My first project</span>
         </p>
-        <i className="p-[8px] btn bg-black rounded-[5px] cursor-pointer text-[20px]">
+        {/* <i className="p-[8px] btn bg-black rounded-[5px] cursor-pointer text-[20px]">
           <FiDownload />
-        </i>
+        </i> */}
       </div>
     </>
   );

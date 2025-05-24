@@ -3,6 +3,7 @@ import logo from "../images/Logoo.png"
 import { Link, useNavigate } from 'react-router-dom';
 import image from "../images/authPageSide.png";
 import { api_base_url } from '../helper';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -26,6 +27,7 @@ const Login = () => {
       })
     }).then(res => res.json()).then(data => {
       if(data.success === true){
+        toast.success("Logged in Successfully")
         localStorage.setItem("token", data.token);
         localStorage.setItem("isLoggedIn", true);
         localStorage.setItem("userId", data.userId);

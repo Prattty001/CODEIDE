@@ -49,9 +49,29 @@ const Navbar = ({ isGridLayout, setIsGridLayout }) => {
 <div className="links flex items-center gap-4  p-4 rounded-md">
   <Link className="text-white hover:text-blue-400 transition-colors duration-300">Home</Link>
   <Link className="text-white hover:text-green-400 transition-colors duration-300">About</Link>
-  <Link className="text-white hover:text-yellow-400 transition-colors duration-300">Contact</Link>
-  <Link className="text-white hover:text-purple-400 transition-colors duration-300">Services</Link>
-  <button onClick={logout} className="btnBlue !bg-red-500 min-w-[120px] ml-4 hover:!bg-red-600">Logout</button>
+ 
+ 
+<div className="relative group inline-block">
+  <button
+    onClick={logout}
+    className="btnBlue !bg-red-500 min-w-[120px] ml-4 hover:!bg-red-600"
+  >
+    Logout
+  </button>
+
+  {/* Tooltip below button with smooth animation */}
+  <div className="absolute left-1/2 top-full mt-2 -translate-x-1/2 z-50 w-max
+    px-4 py-2 text-sm bg-[#333] text-white rounded-xl shadow-lg
+    opacity-0 transform scale-95 translate-y-[-10px]
+    group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0
+    transition-all duration-300 ease-out">
+    <span className='text-cyan-400'>😢 Don’t go! <br /> Practice and code more!</span>
+
+{/* Tooltip arrow */}
+    <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#333] rotate-45 z-[-1]"></div>
+  </div>
+</div>
+
   <Avatar
     onClick={() => {
       toggleClass(".dropDownNavbar", "hidden");

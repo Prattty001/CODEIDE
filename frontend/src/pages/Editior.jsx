@@ -5,6 +5,7 @@ import { MdLightMode } from 'react-icons/md';
 import { AiOutlineExpandAlt } from "react-icons/ai";
 import { api_base_url } from '../helper';
 import { useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Editior = () => {
   const [tab, setTab] = useState("html");
@@ -17,18 +18,22 @@ const Editior = () => {
   // Extract projectID from URL using useParams
   const { projectID } = useParams();
 
-  const changeTheme = () => {
-    const editorNavbar = document.querySelector(".EditiorNavbar");
-    if (isLightMode) {
-      editorNavbar.style.background = "#141414";
-      document.body.classList.remove("lightMode");
-      setIsLightMode(false);
-    } else {
-      editorNavbar.style.background = "#f4f4f4";
-      document.body.classList.add("lightMode");
-      setIsLightMode(true);
-    }
-  };
+const changeTheme = () => {
+  const editorNavbar = document.querySelector(".EditiorNavbar");
+  if (isLightMode) {
+    editorNavbar.style.background = "#141414";
+    document.body.classList.remove("lightMode");
+    setIsLightMode(false);
+
+    toast.success("🌙 Dark mode enabled!");
+  } else {
+    editorNavbar.style.background = "#f4f4f4";
+    document.body.classList.add("lightMode");
+    setIsLightMode(true);
+    toast.success("☀️ Light mode enabled!");
+  }
+};
+
 
   const run = () => {
     const html = htmlCode;

@@ -6,11 +6,12 @@ import NoPage from './pages/NoPage';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import Editior from './pages/Editior';
-
+import {Toaster} from 'react-hot-toast';
 const App = () => {
   let isLoggedIn = localStorage.getItem("isLoggedIn");
   return (
     <>
+    <Toaster position="top-center" reverseOrder={false} />
       <BrowserRouter>
         <Routes>
           <Route path='/' element={isLoggedIn ? <Home /> : <Navigate to="/login"/>} />
